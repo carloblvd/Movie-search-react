@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./index.css";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import MovieSearchPage from "./pages/MovieSearchPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
+  const [modalStatus, setModalStatus] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+
+  function modalOpen() {
+    setModalStatus(!modalStatus);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="App">
+        <Nav modalOpen={modalOpen} modalStatus={modalStatus} />
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={<HomePage setSearchInput={setSearchInput} />}
+          />
+          <Route
+            path={`/movie-search`}
+            element={
+              <MovieSearchPage
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+              />
+            }
+          />
+        </Routes>
+        <Footer modalOpen={modalOpen} modalStatus={modalStatus} />
+      </div>
+    </Router>
   );
 }
 
