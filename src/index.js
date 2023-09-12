@@ -11,7 +11,6 @@ import {
   faTimes,
   faSearch,
   faFileAlt,
-  faSpin,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 

@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MovieSearchPage from "./pages/MovieSearchPage";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ui/ScrollToTop";
 
 function App() {
   const [modalStatus, setModalStatus] = useState(false);

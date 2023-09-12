@@ -1,7 +1,7 @@
 import { faArrowUp, faFilm } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import Modal from "./Modal";
+import Modal from "./ui/Modal";
 import { Link } from "react-router-dom";
 
 const Footer = ({ modalOpen, modalStatus }) => {
@@ -45,7 +45,7 @@ const Footer = ({ modalOpen, modalStatus }) => {
               </Link>
             </li>
             <li className="footer__link contact__button" onClick={modalOpen}>
-              <a className="light-green footer__contact">Contact</a>
+              <span className="light-green footer__contact">Contact</span>
             </li>
           </ul>
           <div className="copyright">Copyright © 2023 Carlo Munoz</div>

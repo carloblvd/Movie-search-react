@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Skeleton from "../components/Skeleton";
-import Movie from "../components/Movie";
+import Skeleton from "../components/ui/Skeleton";
+import Movie from "../components/ui/Movie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import errorImg from "../assets/undraw search img.svg";

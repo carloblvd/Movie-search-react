@@ -1,7 +1,7 @@
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import Modal from "./Modal";
+import Modal from "./ui/Modal";
 import { Link } from "react-router-dom";
 
 const Nav = ({ modalOpen, modalStatus }) => {
@@ -30,7 +30,7 @@ const Nav = ({ modalOpen, modalStatus }) => {
             </Link>
           </li>
           <button className="nav__link contact__button" onClick={modalOpen}>
-            <a className="light-green nav__contact">Contact</a>
+            <span className="light-green nav__contact">Contact</span>
           </button>
         </ul>
       </nav>

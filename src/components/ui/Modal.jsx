@@ -69,6 +69,7 @@ const Modal = ({ modalOpen }) => {
             <a
               className="modal__social--link"
               target="_blank"
+              rel="noreferrer"
               href="https://www.linkedin.com/in/carlo-munoz-04069a164">
               <span className="modal__social--icon">
                 <FontAwesomeIcon icon={faLinkedin} />
@@ -77,12 +78,17 @@ const Modal = ({ modalOpen }) => {
             <a
               className="modal__social--link"
               target="_blank"
+              rel="noreferrer"
               href="https://github.com/carloblvd">
               <span className="modal__social--icon">
                 <FontAwesomeIcon icon={faGithub} />
               </span>
             </a>
-            <a className="modal__social--link" target="_blank" href="">
+            <a
+              className="modal__social--link"
+              rel="noreferrer"
+              target="_blank"
+              href="https://github.com/carloblvd">
               <span className="modal__social--icon">
                 <FontAwesomeIcon icon={faFileAlt} />
               </span>

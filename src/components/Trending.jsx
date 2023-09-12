@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Movie from "./Movie";
+import Movie from "./ui/Movie";
 
 const Trending = () => {
   const apiKey = "2e1f6500";
@@ -35,7 +35,8 @@ const Trending = () => {
     }
 
     fetchTrendingMovies();
-  }, []);
+    // eslint-disable-next-line
+  }, [trendingMovies]);
 
   return (
     <section id="trending">
