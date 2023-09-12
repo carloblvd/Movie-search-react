@@ -1,42 +1,40 @@
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faFileAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
+import emailjs from "emailjs-com";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const Modal = ({ modalOpen }) => {
   const [nameUp, setNameUp] = useState(false);
   const [emailUp, setEmailUp] = useState(false);
   const [messageUp, setMessageUp] = useState(false);
-  // function contact(event) {
-  //   event.preventDefault();
+  const [successMessage, setSuccessMessage] = useState(false);
 
-  //   emailjs
-  //     .sendForm(
-  //       "service_gnajquf",
-  //       "template_r2rjfjm",
-  //       event.target,
-  //       "fUrOyNKYMUln64o4F"
-  //     )
-  //     .then(() => {
-  //       console.log("it worked g");
-  //       showSuccessMessage();
-  //     })
-  //     .catch(() => {
-  //       alert(
-  //         "The email service is temporarily unavailable. Please contact me directly at carloblvd@gmail.com"
-  //       );
-  //     });
-  // }
+  const form = useRef();
 
-  // function showSuccessMessage() {
-  //   const successMessage = document.querySelector(".success__message");
-  //   successMessage.classList.add("visible");
+  function contact(event) {
+    event.preventDefault();
 
-  //   setTimeout(() => {
-  //     successMessage.classList.remove("visible");
-  //   }, 3000);
-  //   console.log("success");
-  // }
+    emailjs
+      .sendForm(
+        "service_gnajquf",
+        "template_r2rjfjm",
+        event.target,
+        "fUrOyNKYMUln64o4F"
+      )
+      .then(() => {
+        console.log("it worked g");
+        setSuccessMessage(true);
+        setTimeout(() => {
+          setSuccessMessage(false);
+        }, 3000);
+      })
+      .catch(() => {
+        alert(
+          "The email service is temporarily unavailable. Please contact me directly at carloblvd@gmail.com"
+        );
+      });
+  }
 
   function moveNameUp() {
     setNameUp(true);
@@ -88,13 +86,13 @@ const Modal = ({ modalOpen }) => {
               className="modal__social--link"
               rel="noreferrer"
               target="_blank"
-              href="https://github.com/carloblvd">
+              href="https://resume.io/r/nLMmxt1JD">
               <span className="modal__social--icon">
                 <FontAwesomeIcon icon={faFileAlt} />
               </span>
             </a>
           </ul>
-          <form className="contact__form">
+          <form ref={form} className="contact__form" onSubmit={contact}>
             <div className="form__item">
               {!nameUp ? (
                 <label className="label form__item--label">Name</label>
@@ -129,9 +127,9 @@ const Modal = ({ modalOpen }) => {
             </div>
             <div className="form__item">
               {!messageUp ? (
-                <label className="label form__item--label">Message</label>
+                <label className="label form__item--message">Message</label>
               ) : (
-                <label className="label moveLabelUp form__item--label">
+                <label className="label moveLabelUp form__item--message">
                   Message
                 </label>
               )}
@@ -142,11 +140,16 @@ const Modal = ({ modalOpen }) => {
                 name="message"
                 required></textarea>
             </div>
-            <div className="modal__contact--button">
-              <button id="contact__submit" className="form__submit">
+            <div type="submit" value="Send" className="modal__contact--button">
+              <button
+                id="contact__submit"
+                className="form__submit"
+                onClick={contact}>
                 Send!
               </button>
-              <h4 className="success__message">Thank you for the message!</h4>
+              {successMessage ? (
+                <h4 className="success__message">Thank you for the message!</h4>
+              ) : null}
             </div>
           </form>
         </div>
