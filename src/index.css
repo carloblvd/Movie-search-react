@@ -485,6 +485,9 @@ MOVIE INFO PAGE
 
 .movie__info--wrapper {
   width: 55%;
+  padding: 16px;
+  border: 4px solid #24242450;
+  border-radius: 20px;
 }
 
 .movie__info--img--wrapper {
@@ -497,7 +500,7 @@ MOVIE INFO PAGE
 }
 
 .movie__header {
-  text-align: left;
+  text-align: center;
   font-size: 54px;
 }
 
