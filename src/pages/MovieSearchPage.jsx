@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import errorImg from "../assets/undraw search img.svg";
 
-const MovieSearchPage = ({ searchInput, setSearchInput }) => {
+const MovieSearchPage = ({ searchInput, setSearchInput, setMovieIMDB }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const url = `https://www.omdbapi.com/?apikey=2e1f6500&s=${searchInput}`;
@@ -125,7 +125,12 @@ const MovieSearchPage = ({ searchInput, setSearchInput }) => {
                 </div>
                 <div className="movies">
                   {searchResults.map((movie) => (
-                    <Movie movie={movie} key={movie.imdbID} />
+                    <Movie
+                      movie={movie}
+                      setMovieIMDB={setMovieIMDB}
+                      ID={movie.imdbID}
+                      key={movie.imdbID}
+                    />
                   ))}
                 </div>
               </div>

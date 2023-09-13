@@ -12,9 +12,19 @@ import {
   faSearch,
   faFileAlt,
   faSpinner,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faFilm, faArrowUp, faTimes, faSearch, faFileAlt, faSpinner);
+library.add(
+  fab,
+  faFilm,
+  faArrowUp,
+  faTimes,
+  faSearch,
+  faFileAlt,
+  faSpinner,
+  faArrowLeft
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);

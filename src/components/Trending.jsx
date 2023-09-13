@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Movie from "./ui/Movie";
 
-const Trending = () => {
+const Trending = ({ setMovieIMDB }) => {
   const apiKey = "2e1f6500";
   const trendingMoviesIds = [
     "tt1517268",
@@ -45,7 +45,12 @@ const Trending = () => {
           <h3 className="section__title">Trending</h3>
           <div className="movies">
             {trendingMovies.map((movie) => (
-              <Movie movie={movie} key={movie.imdbID} />
+              <Movie
+                movie={movie}
+                ID={movie.imdbID}
+                setMovieIMDB={setMovieIMDB}
+                key={movie.imdbID}
+              />
             ))}
           </div>
         </div>

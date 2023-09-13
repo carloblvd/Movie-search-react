@@ -158,7 +158,7 @@ LANDING PAGE
 
 #landing {
   height: calc(100% - 100px);
-
+  min-height: calc(100vh - 100px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,6 +187,10 @@ LANDING PAGE
   z-index: 5;
   color: white;
   font-size: 48px;
+  animation: fade-in 2.5s ease;
+}
+
+.landing__search--wrapper {
   animation: fade-in 2.5s ease;
 }
 
@@ -290,7 +294,6 @@ MOVIES
 }
 
 .movie:hover .movie__img--wrapper {
-  cursor: not-allowed;
   box-shadow: 0px 2px 5px 8px #24242450;
 }
 
@@ -403,7 +406,7 @@ footer {
 
 /* 
 
-MOVIES PAGE 
+MOVIE SEARCH PAGE 
 
 */
 
@@ -448,6 +451,94 @@ MOVIES PAGE
   }
 }
 
+/* 
+
+MOVIE INFO PAGE
+
+*/
+
+.back__button {
+  font-size: 24px;
+  margin-left: 24px;
+  margin-top: 24px;
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  transition: all 300ms ease;
+}
+
+.back__button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.back__button:active {
+  transform: scale(0.95);
+}
+
+.movie__container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 0 48px;
+}
+
+.movie__info--wrapper {
+  width: 55%;
+}
+
+.movie__info--img--wrapper {
+  width: 40%;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+
+  justify-content: center;
+}
+
+.movie__header {
+  text-align: left;
+  font-size: 54px;
+}
+
+.movie__info--list {
+  margin: 24px 0 24px 24px;
+}
+
+.movie__list--item {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.movie__plot {
+  font-size: 24px;
+}
+
+.movie__awards {
+  margin-top: 24px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.movie__info--loading {
+  position: relative;
+  height: 80vh;
+}
+
+.loading__wrapper {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 48px;
+}
+
+.loading__spinner {
+  position: absolute;
+  color: #073b3a;
+  animation: spinner 500ms ease-out infinite;
+  font-size: 56px;
+}
 /* 
 
 SKELETON LOADING STATE 
@@ -842,6 +933,22 @@ RESPONSIVE
     width: 60px;
   }
 
+  .movie__header {
+    font-size: 40px;
+  }
+
+  .movie__list--item {
+    font-size: 18px;
+  }
+
+  .movie__plot {
+    font-size: 20px;
+  }
+
+  .movie__awards {
+    font-size: 18px;
+  }
+
   .footer__logo {
     font-size: 48px;
   }
@@ -871,6 +978,34 @@ RESPONSIVE
   .movie__poster--skeleton {
     width: 120px;
     height: 180px;
+  }
+
+  .back__button {
+    font-size: 20px;
+  }
+
+  .movie__container {
+    padding: 0 12px;
+  }
+
+  .movie__info--img--wrapper {
+    align-items: center;
+  }
+
+  .movie__header {
+    font-size: 28px;
+  }
+
+  .movie__list--item {
+    font-size: 16px;
+  }
+
+  .movie__plot {
+    font-size: 16px;
+  }
+
+  .movie__awards {
+    font-size: 16px;
   }
 }
 
@@ -905,6 +1040,31 @@ RESPONSIVE
   .movie__poster--skeleton {
     width: 160px;
     height: 240px;
+  }
+
+  .movie__container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0 48px;
+  }
+
+  .movie__info--img--wrapper {
+    width: 80%;
+  }
+
+  .movie__header {
+    text-align: center;
+    margin: 12px 0 0;
+  }
+
+  .movie__info--wrapper {
+    text-align: center;
+    width: 100%;
+  }
+
+  .movie__info--list {
+    margin: 24px 0;
   }
 
   .movies__error {

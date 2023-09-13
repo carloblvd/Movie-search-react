@@ -1,10 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, ID, setMovieIMDB }) => {
+  const history = useNavigate();
+
+  function goToMovieInfoPage() {
+    setMovieIMDB(ID);
+    history(`/${ID}`);
+  }
+
   return (
     <>
       <div className="movie">
-        <figure className="movie__img--wrapper">
+        <figure className="movie__img--wrapper" onClick={goToMovieInfoPage}>
           <img src={movie.Poster} alt="" className="movie__img" />
         </figure>
         <div className="movie__info">

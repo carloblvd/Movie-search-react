@@ -24,7 +24,7 @@ const Landing = ({ setSearchInput }) => {
         <div className="search__container">
           <div className="row">
             <form
-              className="search__wrapper"
+              className="search__wrapper landing__search--wrapper"
               id="searchForm"
               onSubmit={movieSearch}>
               <input
