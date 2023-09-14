@@ -12,29 +12,29 @@ const Modal = ({ modalOpen }) => {
 
   const form = useRef();
 
-  function contact(event) {
-    event.preventDefault();
+  // function contact(event) {
+  //   event.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_gnajquf",
-        "template_r2rjfjm",
-        event.target,
-        "fUrOyNKYMUln64o4F"
-      )
-      .then(() => {
-        console.log("it worked g");
-        setSuccessMessage(true);
-        setTimeout(() => {
-          setSuccessMessage(false);
-        }, 3000);
-      })
-      .catch(() => {
-        alert(
-          "The email service is temporarily unavailable. Please contact me directly at carloblvd@gmail.com"
-        );
-      });
-  }
+  //   emailjs
+  //     .sendForm(
+  //       "service_gnajquf",
+  //       "template_r2rjfjm",
+  //       event.target,
+  //       "fUrOyNKYMUln64o4F"
+  //     )
+  //     .then(() => {
+  //       console.log("it worked g");
+  //       setSuccessMessage(true);
+  //       setTimeout(() => {
+  //         setSuccessMessage(false);
+  //       }, 3000);
+  //     })
+  //     .catch(() => {
+  //       alert(
+  //         "The email service is temporarily unavailable. Please contact me directly at carloblvd@gmail.com"
+  //       );
+  //     });
+  // }
 
   function moveNameUp() {
     setNameUp(true);
@@ -92,7 +92,7 @@ const Modal = ({ modalOpen }) => {
               </span>
             </a>
           </ul>
-          <form ref={form} className="contact__form" onSubmit={contact}>
+          <form ref={form} className="contact__form">
             <div className="form__item">
               {!nameUp ? (
                 <label className="label form__item--label">Name</label>
@@ -141,10 +141,7 @@ const Modal = ({ modalOpen }) => {
                 required></textarea>
             </div>
             <div type="submit" value="Send" className="modal__contact--button">
-              <button
-                id="contact__submit"
-                className="form__submit"
-                onClick={contact}>
+              <button id="contact__submit" className="form__submit">
                 Send!
               </button>
               {successMessage ? (

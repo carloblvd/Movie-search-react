@@ -7,6 +7,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  min-height: 100vh;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -28,6 +32,11 @@ a {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
+}
+
+.min-height {
+  min-height: 100vh;
+  background-color: #73a58060;
 }
 
 .light-green {
@@ -158,7 +167,7 @@ LANDING PAGE
 
 #landing {
   height: calc(100% - 100px);
-  min-height: calc(100vh - 100px);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,7 +221,8 @@ SEARCH BAR
   width: 100%;
   max-width: 480px;
   border-radius: 9999px;
-  text-align: center;
+  text-align: left;
+  padding: 32px;
   font-size: 20px;
   border: 2px solid white;
   transition: all 300ms ease;
@@ -303,6 +313,7 @@ MOVIES
 
 .movie:hover .movie__img {
   transform: scale(1.05);
+  cursor: pointer;
 }
 
 .movie:active .movie__img--wrapper {
@@ -328,6 +339,7 @@ MOVIES
 
 .movie:hover .movie__title {
   transform: translateY(4px) translateX(-50%);
+  cursor: pointer;
 }
 
 .movie__year {
@@ -505,7 +517,7 @@ MOVIE INFO PAGE
 }
 
 .movie__info--list {
-  margin: 24px 0 24px 24px;
+  margin: 24px 0;
 }
 
 .movie__list--item {
@@ -1064,6 +1076,7 @@ RESPONSIVE
   .movie__info--wrapper {
     text-align: center;
     width: 100%;
+    margin-top: 24px;
   }
 
   .movie__info--list {

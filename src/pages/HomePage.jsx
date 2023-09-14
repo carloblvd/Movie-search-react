@@ -5,12 +5,14 @@ import Trending from "../components/Trending";
 const HomePage = ({ searchInput, setMovieIMDB, setSearchInput }) => {
   return (
     <>
-      <Landing
-        searchInput={searchInput}
-        setMovieIMDB={setMovieIMDB}
-        setSearchInput={setSearchInput}
-      />
-      <Trending setMovieIMDB={setMovieIMDB} />
+      <div className="min-height">
+        <Landing
+          searchInput={searchInput}
+          setMovieIMDB={setMovieIMDB}
+          setSearchInput={setSearchInput}
+        />
+        <Trending setMovieIMDB={setMovieIMDB} />
+      </div>
     </>
   );
 };

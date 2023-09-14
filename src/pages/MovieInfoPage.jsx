@@ -87,7 +87,6 @@ const MovieInfoPage = ({ movieIMDB }) => {
           <section>
             <div className="movie__info--loading">
               <div className="loading__wrapper">
-                <span>Loading... </span>
                 <span className="loading__spinner">
                   <FontAwesomeIcon icon={faSpinner} />
                 </span>
